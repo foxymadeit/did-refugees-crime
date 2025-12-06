@@ -95,19 +95,7 @@ Running DID on pre-treatment years only:
 
 ---
 
-### 6. Event-study analysis shows no dynamic causal effect
-
-Event-study coefficients:
-
-- are consistently negative in pre-treatment years but remain **stable over time**, indicating no deviation trends before 2015  
-- stay at a similar negative level after 2015, showing **no change in the pattern following the refugee inflow**  
-- confidence intervals remain fully below zero, reflecting a **baseline level difference** between treated and control regions  
-- reveal **no structural break around the treatment year**
-
-Overall, the event-study pattern supports the DiD findings:  
-although treated regions have a lower baseline crime rate, the **trend does not shift after 2015**, implying **no dynamic causal impact** of refugee inflow on crime.
-
-### 7. Different threshold 
+### 6. Different threshold 
 
 To test whether results depend on how “treated regions” are defined,  
 DID models were re-estimated using **five alternative thresholds** of treatment intensity in 2016:
@@ -137,6 +125,20 @@ This confirms that:
 - The main conclusion does **not depend** on the chosen cutoff  
 - Treatment assignment is **not artificially creating** the DID effect  
 - Results are **robust to threshold choice**
+
+---
+
+### 7. Event-study analysis shows no dynamic causal effect
+
+Event-study coefficients:
+
+- are consistently negative in pre-treatment years but remain **stable over time**, indicating no deviation trends before 2015  
+- stay at a similar negative level after 2015, showing **no change in the pattern following the refugee inflow**  
+- confidence intervals remain fully below zero, reflecting a **baseline level difference** between treated and control regions  
+- reveal **no structural break around the treatment year**
+
+Overall, the event-study pattern supports the DiD findings:  
+although treated regions have a lower baseline crime rate, the **trend does not shift after 2015**, implying **no dynamic causal impact** of refugee inflow on crime.
 
 ---
 

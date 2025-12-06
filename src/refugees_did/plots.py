@@ -88,6 +88,7 @@ def plot_parallel_trends(
     if ax is None:
         fig, ax = plt.subplots(figsize=(8, 5))
 
+
     for treated_flag, label in [(0, "Control regions"), (1, "Treated regions")]:
         sub = df[df["treated"] == treated_flag].copy()
         if sub.empty:
@@ -98,6 +99,7 @@ def plot_parallel_trends(
 
         ax.plot(years, mean, marker="o", linestyle="-", label=label)
 
+    ax.axvline(2015, linestyle="--", linewidth=1, label="Treatment year (2015)")
     ax.set_xlabel("Year")
     ax.set_ylabel(outcome)
     ax.set_title("Parallel trends: treated vs control")
@@ -161,6 +163,7 @@ def build_event_study_table(
     # All coefficients and standard errors
     params = event_model.params
     se_series = event_model.bse
+    pvals = event_model.pvalues
 
     # Confidence intervals for all parameters
     conf = event_model.conf_int()
@@ -175,6 +178,7 @@ def build_event_study_table(
 
         year = int(match.group("year"))
         se = se_series.get(name, np.nan)
+        pvalue = pvals.get(name, np.nan)
 
         if name in conf.index:
             ci_low = conf.loc[name, "ci_low"]
@@ -191,6 +195,7 @@ def build_event_study_table(
                 "rel_year": rel_year,
                 "coef": coef,
                 "se": se,
+                "pvalue": pvalue,
                 "ci_low": ci_low,
                 "ci_high": ci_high,
             }
@@ -217,6 +222,7 @@ def build_event_study_table(
         df = pd.concat([df, pd.DataFrame([ref_row])], ignore_index=True)
 
     df = df.sort_values("rel_year").reset_index(drop=True)
+    df["pvalue"] = df["pvalue"].round(3)
     return df
 
 
