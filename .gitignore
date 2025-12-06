@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pkl
+*.pkl.gz
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Statsmodels cache
+*.pickle
+*.pkl
+*.dta
+
+
+# Notebook checkpoint
+*.ipynb_checkpoints
+.ipynb_checkpoints/
+
+# Data files
+data/raw/
+
+# Logs / temp / cache
+*.log
+*.tmp
+.DS_Store
+*.swp
+*.swo
+
+# macOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# VS Code settings
+.vscode/
